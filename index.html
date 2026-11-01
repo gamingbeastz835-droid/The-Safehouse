@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0a0810">
+<title>The Safehouse — Your people. Your space.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="toast" class="toast" role="status"></div>
+<main id="authView" class="auth-shell"><section class="auth-card">
+<div class="brand-mark large">SH</div><p class="eyebrow">YOUR PEOPLE. YOUR SPACE.</p><h1>Welcome to<br><span>The Safehouse.</span></h1>
+<p class="muted intro">A place for your conversations, communities and people. All under one roof.</p>
+<button id="googleSignIn" class="google-btn"><b class="google-g">G</b> Continue with Google</button>
+<p class="fine-print">By continuing, you agree to use The Safehouse respectfully.</p><div class="auth-foot"><i class="online-dot"></i> Your corner of the internet</div>
+</section><div class="auth-glow"></div></main>
+<div id="appView" class="app-shell hidden">
+<aside class="rail"><div class="brand-mark">SH</div>
+<button class="rail-btn active" data-view="home" title="Home">⌂</button><button class="rail-btn" data-view="friends" title="Friends">♧</button>
+<div class="rail-divider"></div><div id="serverRail" class="server-rail"></div><button id="newServerBtn" class="rail-btn" title="Create server">＋</button><div class="rail-spacer"></div>
+<button id="profileRail" class="avatar avatar-small" title="Profile">?</button></aside>
+<aside id="sidebar" class="sidebar"><div class="sidebar-top"><div><p class="eyebrow">THE SAFEHOUSE</p><h2>Your space</h2></div><button id="newChatBtn" class="icon-btn">＋</button></div>
+<div class="search-wrap">⌕ <input id="searchInput" placeholder="Find a conversation"></div>
+<div class="section-label"><span>MESSAGES</span><button id="newGroupBtn" class="text-btn">＋ GROUP</button></div><div id="conversationList" class="list"></div>
+<div class="section-label server-label"><span>YOUR SERVERS</span><button id="newServerTextBtn" class="text-btn">＋ NEW</button></div><div id="serverList" class="list compact-list"></div>
+<div class="user-panel"><img id="myAvatar" class="avatar" alt=""><div class="user-meta"><strong id="myName">Your account</strong><small id="myEmail"></small></div><button id="signOutBtn" class="icon-btn">↪</button></div></aside>
+<section class="main-panel"><header class="topbar"><div class="crumb"><i class="live-pill"></i><span id="contextTitle">Home</span></div><div class="top-actions"><span class="secure-label">✦ A space of your own</span><button id="mobileMenu" class="icon-btn mobile-only">☰</button></div></header>
+<section id="welcomePanel" class="welcome-panel"><div class="welcome-copy"><p class="eyebrow">MAKE YOURSELF AT HOME</p><h1>Your people.<br><span>Your space.</span></h1><p class="muted">Start a conversation, bring your friends together, or build a community around what you love.</p><div class="welcome-actions"><button id="welcomeDmBtn" class="primary-btn">＋ New message</button><button id="welcomeServerBtn" class="secondary-btn">Create a server</button></div></div>
+<div class="welcome-art"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-orb">SH</div><div class="float-card card-a">✦ <span>your circle</span></div><div class="float-card card-b"><i class="online-dot"></i> connected</div></div>
+<div class="quick-stats"><div><strong id="statChats">0</strong><span>CONVERSATIONS</span></div><div><strong id="statServers">0</strong><span>SERVERS</span></div><div><strong id="statFriends">0</strong><span>FRIENDS</span></div></div></section>
+<section id="chatPanel" class="chat-panel hidden"><div class="chat-header"><div class="chat-person"><div id="chatAvatar" class="avatar">?</div><div><h3 id="chatTitle">Conversation</h3><p id="chatSubtitle" class="muted small">Private conversation</p></div></div><div class="chat-tools"><button id="chatInviteBtn" class="icon-btn" title="Conversation info">ⓘ</button></div></div>
+<div id="typingLine" class="typing-line"></div><div id="messageList" class="message-list"></div>
+<form id="messageForm" class="composer"><button type="button" class="attach-btn" title="Attachments planned for a future release">＋</button><input id="messageInput" maxlength="4000" placeholder="Message The Safehouse..." autocomplete="off"><button class="send-btn" type="submit">➤</button></form></section>
+<section id="friendsPanel" class="utility-panel hidden"><div class="utility-heading"><p class="eyebrow">YOUR CIRCLE</p><h1>Friends</h1><p class="muted">Find people and grow your circle.</p></div>
+<form id="friendForm" class="friend-search"><input id="friendEmail" type="email" placeholder="Friend's exact Google email" required><button class="primary-btn">Send request</button></form>
+<div class="two-column"><div><h3>Friend requests</h3><div id="requestList" class="list"></div></div><div><h3>Your friends</h3><div id="friendsList" class="list"></div></div></div></section>
+<section id="serverPanel" class="utility-panel hidden"><div class="utility-heading"><p class="eyebrow">YOUR COMMUNITY</p><h1 id="serverPageTitle">Server</h1><p class="muted" id="serverDescription">A place to gather.</p><div class="server-actions"><button id="inviteServerBtn" class="secondary-btn">＋ Invite people</button><button id="copyInviteBtn" class="secondary-btn">Copy invite code</button></div></div>
+<div class="server-content"><div id="channelList" class="channel-list"></div><div class="server-placeholder"><div class="hero-orb small-orb">SH</div><h2>Make this place yours.</h2><p class="muted">Choose a channel to start chatting.</p></div></div></section>
+<section id="profilePanel" class="utility-panel hidden"><div class="utility-heading"><p class="eyebrow">ACCOUNT SETTINGS</p><h1>Your profile</h1><p class="muted">Update how people see you around The Safehouse.</p></div><form id="profileForm" class="profile-form"><label>Display name<input id="profileName" maxlength="40" required></label><label>About you<input id="profileBio" maxlength="120" placeholder="A little about yourself"></label><button class="primary-btn">Save profile</button></form><p class="muted small">Signed in as <span id="profileEmail"></span></p></section>
+</section></div>
+<dialog id="createServerDialog" class="modal"><form id="createServerForm" method="dialog"><button class="modal-close" value="cancel">×</button><p class="eyebrow">START A COMMUNITY</p><h2>Create a server</h2><label>Server name<input id="serverName" maxlength="40" required placeholder="The Night Owls"></label><label>Description<input id="serverDesc" maxlength="120" placeholder="What brings everyone together?"></label><button class="primary-btn full" value="default">Create server</button></form></dialog>
+<dialog id="createGroupDialog" class="modal"><form id="createGroupForm" method="dialog"><button class="modal-close" value="cancel">×</button><p class="eyebrow">BRING PEOPLE TOGETHER</p><h2>New group chat</h2><label>Group name<input id="groupName" maxlength="50" required placeholder="Weekend plans"></label><label>Friends' emails<input id="groupEmails" placeholder="friend@email.com, another@email.com"></label><button class="primary-btn full" value="default">Create group</button></form></dialog>
+<dialog id="newChatDialog" class="modal"><form id="newChatForm" method="dialog"><button class="modal-close" value="cancel">×</button><p class="eyebrow">SAY HELLO</p><h2>Start a conversation</h2><label>Friend's exact email<input id="dmEmail" type="email" required placeholder="friend@email.com"></label><button class="primary-btn full" value="default">Open chat</button></form></dialog>
+<dialog id="joinServerDialog" class="modal"><form id="joinServerForm" method="dialog"><button class="modal-close" value="cancel">×</button><p class="eyebrow">JOIN A COMMUNITY</p><h2>Join a server</h2><label>Invite code<input id="joinCode" required placeholder="Paste invite code"></label><button class="primary-btn full" value="default">Join server</button></form></dialog>
+<dialog id="inviteDialog" class="modal"><form method="dialog"><button class="modal-close" value="cancel">×</button><p class="eyebrow">GROW YOUR COMMUNITY</p><h2>Server invite</h2><p class="muted">Share this code with someone you trust.</p><div class="invite-code" id="inviteCodeDisplay"></div><button id="copyInviteModal" type="button" class="primary-btn full">Copy invite code</button><button class="secondary-btn full" value="cancel">Done</button></form></dialog>
+<script type="module" src="app.js"></script>
+</body></html>
